@@ -3,6 +3,7 @@ import style from './ContactItem.module.css';
 import PropTypes from 'prop-types';
 
 export default function ContactItem({ contacts, onDeleteContact }) {
+  
   return (
     <div>
       <li key={contacts.id} className={style.contactItem}>

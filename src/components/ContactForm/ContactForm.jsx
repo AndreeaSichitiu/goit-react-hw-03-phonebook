@@ -19,6 +19,7 @@ export class ContactForm extends Component {
     this.props.handleSubmit(this.state);
     form.reset();
   };
+
   render() {
     const { name, number } = this.state;
     return (

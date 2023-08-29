@@ -17,6 +17,25 @@ export class App extends Component {
     filter: '',
   };
 
+
+  componentDidMount() {
+      const json = localStorage.getItem('contacts');
+      const contacts = JSON.parse(json);
+
+      if (contacts) {
+        this.setState(() => ({ contacts: contacts }));
+      }
+    }
+   
+
+  componentDidUpdate(prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      const json = JSON.stringify(this.state.contacts);
+      localStorage.setItem('contacts', json);
+    }
+  }
+
+
   handleSubmit = event => {
     const id = nanoid();
     const name = event.name;
